@@ -10,7 +10,8 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/sanskrutipawar/YOUR_REPO_NAME.git'
+                // ✅ Cloning your GitHub repo
+                git 'https://github.com/sanskruti687/storyhub-cicd.git'
             }
         }
 
@@ -25,7 +26,7 @@ pipeline {
         stage('Login to Docker Hub') {
             steps {
                 withCredentials([usernamePassword(
-                    credentialsId: 'dockerhub-creds',
+                    credentialsId: 'dockerhub-creds',  // ✅ Must match Jenkins credentials ID
                     usernameVariable: 'DOCKER_USER',
                     passwordVariable: 'DOCKER_PASS'
                 )]) {
